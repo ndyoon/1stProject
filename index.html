@@ -7,18 +7,54 @@
   <title>ND Yoon | Personal Homepage</title>
 
   <style>
+    :root {
+      --bg-color: #f5f5f5;
+      --text-color: #222222;
+      --header-bg: #111111;
+      --header-title-color: #ffffff;
+      --header-subtitle-color: #cccccc;
+      --nav-bg: #ffffff;
+      --nav-border: #dddddd;
+      --card-bg: #ffffff;
+      --card-border: #e5e5e5;
+      --btn-bg: #eeeeee;
+      --btn-text: #222222;
+      --btn-hover-bg: #222222;
+      --btn-hover-text: #ffffff;
+      --footer-text: #777777;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --header-bg: #1e1e1e;
+      --header-title-color: #ffffff;
+      --header-subtitle-color: #bbbbbb;
+      --nav-bg: #1e1e1e;
+      --nav-border: #333333;
+      --card-bg: #242424;
+      --card-border: #333333;
+      --btn-bg: #2c2c2c;
+      --btn-text: #e0e0e0;
+      --btn-hover-bg: #ffffff;
+      --btn-hover-text: #121212;
+      --footer-text: #aaaaaa;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #222;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     header {
-      background: #111;
-      color: white;
+      background: var(--header-bg);
+      color: var(--header-title-color);
       padding: 70px 20px 50px;
       text-align: center;
+      transition: background-color 0.3s ease;
     }
 
     header h1 {
@@ -28,33 +64,53 @@
 
     header p {
       font-size: 20px;
-      color: #cccccc;
+      color: var(--header-subtitle-color);
     }
 
     /* 메뉴 버튼 영역 */
     nav {
-      background: white;
+      background: var(--nav-bg);
       padding: 20px;
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 12px;
       flex-wrap: wrap;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid var(--nav-border);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
     nav a {
       text-decoration: none;
-      color: #222;
-      background: #eeeeee;
+      color: var(--btn-text);
+      background: var(--btn-bg);
       padding: 12px 20px;
       border-radius: 8px;
       font-size: 16px;
-      transition: 0.2s;
+      transition: all 0.2s ease;
     }
 
     nav a:hover {
-      background: #222;
-      color: white;
+      background: var(--btn-hover-bg);
+      color: var(--btn-hover-text);
+      transform: translateY(-2px);
+    }
+
+    .theme-toggle-btn {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: 1px solid var(--nav-border);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      background: var(--btn-hover-bg);
+      color: var(--btn-hover-text);
       transform: translateY(-2px);
     }
 
@@ -80,17 +136,21 @@
     }
 
     .interest {
-      background: white;
+      background: var(--card-bg);
       padding: 15px 20px;
       border-radius: 8px;
+      border: 1px solid var(--card-border);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
     footer {
       text-align: center;
       padding: 30px;
-      color: #777;
+      color: var(--footer-text);
+      transition: color 0.3s ease;
     }
   </style>
+  <script src="theme.js" defer></script>
 </head>
 
 <body>
@@ -109,6 +169,7 @@
     <a href="garden.html">정원관리</a>
     <a href="maintenance.html">유지 보수</a>
     <a href="deadline.html">오늘의 마감</a>
+    <button id="theme-toggle-btn" class="theme-toggle-btn" type="button">🌙 다크 모드</button>
   </nav>
 
 
